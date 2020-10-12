@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <body>    
+    <div id='display'></div>
+    <script>
+      window.onload = function() {
+        var result = document.getElementById('display');
+        window.addEventListener('message', function(e) {
+          var sourceOrigin = location.origin;
+          if (e.origin !== sourceOrgin ) return;
+          display.textContent = e.data;
+        }, false);
+      }
+    </script>
+  </body>
+</html>
