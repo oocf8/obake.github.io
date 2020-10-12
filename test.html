@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <body>
+    <p>
+      <input type='text' id='message' size='60'>
+        <input type='button' value='送信' id='button'>
+    </p>
+    <iframe src='other.html' id='frame' width='300px' height='200px'></iframe>
+    
+    <script>
+      window.onload = function() {
+        var frameWindow = document.getElementById('frame').contentWindow;
+        var message = document.getElementById('message');
+        var button = document.getElementById('button');
+        var targetOrigin = '/';
+        button.addEventListener('click', function() {
+          frameWindow.postMessage(message.value, targetOrigin);
+        }, false);
+      };
+    </script>
+  </body>
+</html>
